@@ -1,31 +1,103 @@
 body {
-  background-color: white;
+  background-color: black;
   margin: 0;
   padding: 0;
 }
 
 body h1 {
-  color: black;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
   text-align: center;
+}
+
+#user-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-item {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
   gap: 10px;
-  margin: 10px;
+  margin: 20px;
   padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: rgb(0, 90, 163);
   border-radius: 5px;
   color: white;
   list-style-type: none;
-  width: 700px;
+  width: 500px;
   transition: 0.4s;
+}
+
+.user-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .user-item:hover {
   cursor: pointer;
   background-color: rgb(0, 55, 89);
   transition: 0.4s;
+}
+
+.user-item .tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: white;
+  color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  right: calc(100% + -500px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.user-item:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.user-item .tooltip-less {
+  visibility: hidden;
+  width: 120px;
+  background-color: white;
+  color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  right: calc(100% + -500px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.user-item:hover .tooltip-less {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dropdown-content {
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  background-color: rgb(0, 45, 82);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  padding: 20px;
 }

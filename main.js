@@ -18,6 +18,7 @@ const getUsers = async () => {
 
       // Create a dropdown element
       let dropdown = document.createElement('div');
+      dropdown.className = 'dropdown-content'
       dropdown.classList.add('dropdown');
 
       // Format the date of birth to MM/DD/YYYY
@@ -44,6 +45,34 @@ const getUsers = async () => {
           dropdown.style.display = 'none'
         }
       })
+
+      //Tooltip - show more
+      let tooltip = document.createElement('div')
+      tooltip.innerHTML = 'Click to see more info'
+      tooltip.className = 'tooltip'
+      userElement.appendChild(tooltip)
+      
+      // Tooltip - show less
+      let tooltipLess = document.createElement('div')
+      tooltipLess.innerHTML = 'Click to hide info'
+      tooltipLess.className = 'tooltip-less'
+      dropdown.appendChild(tooltipLess)
+
+      userElement.addEventListener('mouseover', () => {
+        if(dropdown.style.display === 'none') {
+          tooltip.style.visibility = 'visible'
+          tooltipLess.style.visibility = 'hidden'
+        } else {
+          tooltip.style.visibility = 'hidden'
+          tooltipLess.style.visibility = 'visible'
+        }
+      })
+
+      userElement.addEventListener('mouseout', () => {
+        tooltip.style.visibility = 'hidden'
+        tooltipLess.style.visibility = 'hidden'
+      })
+
       users.appendChild(userElement);
     });
 
